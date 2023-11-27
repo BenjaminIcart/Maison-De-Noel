@@ -11,30 +11,29 @@
 #include <Fonts/FreeSans12pt7b.h>
 #include <Fonts/FreeSansBold12pt7b.h>;
 #include <Fonts/FreeSerifBoldItalic9pt7b.h> 
-     // Gras + Italique (en 9, 12, 18, et 24 pts)
 #include <Fonts/FreeMonoBoldOblique12pt7b.h>
 #include <Fonts/FreeMonoBoldOblique18pt7b.h>
 #include <Fonts/FreeMonoBoldOblique24pt7b.h>
-#include <Fonts/FreeMonoBold9pt7b.h>              // Gras (en 9, 12, 18, et 24 pts)
+#include <Fonts/FreeMonoBold9pt7b.h>
 #include <Fonts/FreeMonoBold12pt7b.h>
 #include <Fonts/FreeMonoBold18pt7b.h>
 #include <Fonts/FreeMonoBold24pt7b.h>
 #include <Fonts/FreeMono9pt7b.h>  
-//-----------Setup Screen-------------------
+//-----------Mise en place de l'ecran-------------------
 #define OLED_RESET LED_BUILTIN
 #define SCREEN_WIDTH 128
 #define SCREEN_HEIGHT 64
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 
 
-//-----------Wifi Settings-------------------
+//-----------Parametre Wifi-------------------
 const char *ssid = "MOMORPRODS";
 const char *password = "QPVWHA4KUC7E9";
 
 const char *ssid2 = "Wifi2";
 const char *password2 = "passwd2";
 
-//-----------Time Settings-------------------
+//-----------Timer-------------------
 #define UTC 1
 
 int goalH = 0;
@@ -46,7 +45,7 @@ int goalMo = 12;
 
 String textBottom = "Avant Noel";
 
-//-----------Pins Settings-------------------
+//-----------Led-------------------
 #define pinLED1 D3
 #define pinLED2 D4
 
@@ -188,14 +187,14 @@ void printText(int i, time_t now)
 {
   if (day(now) > 25 && month(now) == 12)
   {
-    if (i == 0) //Day > 1
+    if (i == 0) //Jour > 1
     {
       display.setTextSize(1);
       display.setFont(&FreeMonoBold9pt7b);
       display.setCursor(5, 80);
       
     }
-    else if (i == 1) //Day < 1
+    else if (i == 1) //Jour < 1
     {
       textBottom = "Nouvel An";
       display.setFont(&FreeMonoBold9pt7b);
@@ -204,13 +203,13 @@ void printText(int i, time_t now)
   }
   else
   {
-    if (i == 0) //Day > 1
+    if (i == 0) //Jour > 1
     {
        
       display.setFont(&FreeSans9pt7b);
       display.setCursor(20, 55);
     }
-    else if (i == 1) //Day < 1
+    else if (i == 1) //Jour < 1
     {
       display.setFont(&FreeSans9pt7b);
       display.setCursor(15, 60);
