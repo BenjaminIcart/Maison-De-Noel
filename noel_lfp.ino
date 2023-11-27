@@ -28,6 +28,7 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 
 #define pinLED1 D3
 #define pinLED2 D4
+#define pinLED2 D5
 
 
 
@@ -41,6 +42,7 @@ void setup() {
 
   pinMode(pinLED1, OUTPUT);
   pinMode(pinLED2, OUTPUT);
+  pinMode(pinLED3, OUTPUT);
 
   display.setTextSize(1);
   display.setTextColor(WHITE);
